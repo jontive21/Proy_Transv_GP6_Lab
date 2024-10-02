@@ -13,10 +13,10 @@ public class Alumno {
     private LocalDate fechaNacimiento;
     private boolean estado;
 
-    // Constructor vacío
+    
     public Alumno() {}
 
-    // Constructor con todos los campos
+    
     public Alumno(int idAlumno, String nombre, String apellido, int dni, LocalDate fechaNacimiento, boolean estado) {
         this.idAlumno = idAlumno;
         this.nombre = nombre;
@@ -26,18 +26,55 @@ public class Alumno {
         this.estado = estado;
     }
 
-    // Getters y Setters
-    public int getIdAlumno() { return idAlumno; }
-    public void setIdAlumno(int idAlumno) { this.idAlumno = idAlumno; }
-    public String getNombre() { return nombre; }
-    public void setNombre(String nombre) { this.nombre = nombre; }
-    public String getApellido() { return apellido; }
-    public void setApellido(String apellido) { this.apellido = apellido; }
-    public int getDni() { return dni; }
-    public void setDni(int dni) { this.dni = dni; }
-    public LocalDate getFechaNacimiento() { return fechaNacimiento; }
-    public void setFechaNacimiento(LocalDate fechaNacimiento) { this.fechaNacimiento = fechaNacimiento; }
-    public boolean isEstado() { return estado; }
-    public void setEstado(boolean estado) { this.estado = estado; }
-}
+    public int getIdAlumno() {
+        return idAlumno;
+    }
+
+    public void setIdAlumno(int idAlumno) {
+        this.idAlumno = idAlumno;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
+    }
+
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
+    }
+
+    public int getDni() {
+        return dni;
+    }
+
+    public void setDni(int dni) {
+        this.dni = dni;
+    }
+
+    public LocalDate getFechaNacimiento() {
+        return fechaNacimiento;
+    }
+
+    public void setFechaNacimiento(LocalDate fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
+    }
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
+
+    
+    
+  }
 
