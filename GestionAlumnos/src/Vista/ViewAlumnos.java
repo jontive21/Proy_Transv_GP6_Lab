@@ -4,8 +4,8 @@
  */
 package Vista;
 
-import Modelo.Alumno;
-import Persistencia.AlumnoData;
+import Entidades.Alumno;
+import AccesoADatos.AlumnoData;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import javax.swing.JOptionPane;
