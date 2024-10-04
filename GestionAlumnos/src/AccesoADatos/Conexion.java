@@ -10,7 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Conexion {
-    private static final String URL = "jdbc:mariadb://localhost:3306/nombrebasededatos";
+    private static final String URL = "jdbc:mariadb://localhost:3306/universidad";
     private static final String USUARIO = "root";
     private static final String PASSWORD = "";
     private static Connection conexion = null;
