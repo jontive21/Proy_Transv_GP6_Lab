@@ -20,7 +20,11 @@ public class AlumnoData {
         con = Conexion.getConexion();
     }
 
-    public void guardarAlumno(Alumno alumno) {
+    /*
+       Método guardarAlumno cambiado para poder usarlo en las vistas.
+       Ahora retorna un String en vez de un sout.
+    */
+    public String guardarAlumno(Alumno alumno) {
         String sql = "INSERT INTO alumno (dni, apellido, nombre, fechaNacimiento, estado) VALUES (?, ?, ?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -36,8 +40,10 @@ public class AlumnoData {
                 alumno.setIdAlumno(rs.getInt(1));
             }
             ps.close();
+            return "¡Se ha completado el envio!";
         } catch (SQLException ex) {
             System.out.println("Error al guardar el alumno: " + ex.getMessage());
+            return "No se ha podido establecer la conexión: " + ex.getMessage();
         }
     }
 
