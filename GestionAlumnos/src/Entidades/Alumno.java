@@ -13,10 +13,8 @@ public class Alumno {
     private LocalDate fechaNacimiento;
     private boolean estado;
 
-    
     public Alumno() {}
 
-    
     public Alumno(int idAlumno, String nombre, String apellido, int dni, LocalDate fechaNacimiento, boolean estado) {
         this.idAlumno = idAlumno;
         this.nombre = nombre;
@@ -73,8 +71,5 @@ public class Alumno {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
-
-    
-    
   }
 
