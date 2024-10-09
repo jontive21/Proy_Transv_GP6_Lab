@@ -24,12 +24,13 @@ public class MateriaData {
         con = Conexion.getConexion();
     }
 
-    public void guardarMateria(Materia materia) {
-        String sql = "INSERT INTO materia (nombre, anio) VALUES (?, ?)";
+    public String guardarMateria(Materia materia) {
+        String sql = "INSERT INTO materia (nombre, anio, activo) VALUES (?, ?, ?)";
         try {
             PreparedStatement ps = con.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAnio());
+            ps.setBoolean(3, materia.isActivo());
             ps.executeUpdate();
 
             ResultSet rs = ps.getGeneratedKeys();
@@ -37,8 +38,9 @@ public class MateriaData {
                 materia.setIdMateria(rs.getInt(1));
             }
             ps.close();
+            return "La materia se ha enviado correctamente.";
         } catch (SQLException ex) {
-            System.out.println("Error al guardar la materia: " + ex.getMessage());
+            return "Error al guardar la materia " + ex;
         }
     }
 
@@ -57,7 +59,7 @@ public class MateriaData {
         return materia;
     }
     
-    public void modificarMateria(Materia materia) {
+    public String modificarMateria(Materia materia) {
         String sql = "UPDATE Materia SET nombre = ?, anio = ?, activo = ? WHERE idMateria = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setString(1, materia.getNombre());
@@ -65,18 +67,22 @@ public class MateriaData {
             ps.setBoolean(3, materia.isActivo());
             ps.setInt(4, materia.getIdMateria());
             ps.executeUpdate();
+            ps.close();
+            return "La matería se actualizó correctamente";
         } catch (SQLException ex) {
-            System.out.println("Error al modificar materia: " + ex.getMessage());
+            return "No se ha podido actualizar la materia: " + ex;
         }
     }
     
-    public void eliminarMateria(int id) {
+    public String eliminarMateria(int id) {
         String sql = "UPDATE Materia SET activo = 0 WHERE idMateria = ?";
         try (PreparedStatement ps = con.prepareStatement(sql)) {
             ps.setInt(1, id);
             ps.executeUpdate();
+            ps.close();
+            return "La materia se ha eliminado correctamente";
         } catch (SQLException ex) {
-            System.out.println("Error al eliminar materia: " + ex.getMessage());
+            return "No se pudo eliminar la materia";
         }
     }
     
@@ -94,5 +100,17 @@ public class MateriaData {
             System.out.println("Error al listar materias: " + ex.getMessage());
         }
         return materias;
+    }
+    
+    public String borrarMateria(int id) {
+        String sql = "DELETE FROM Materia WHERE idMateria = ?";
+        try (PreparedStatement ps = con.prepareStatement(sql)) {
+            ps.setInt(1, id);
+            ps.executeUpdate();
+            ps.close();
+            return "La materia se ha eliminado correctamente";
+        } catch (SQLException ex) {
+            return "No se pudo eliminar la materia";
+        }
     }
 }
