@@ -44,6 +44,11 @@ public class ViewPrincipal extends javax.swing.JFrame {
 
         btnViewInscripciones.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnViewInscripciones.setText("Inscripciones");
+        btnViewInscripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnViewInscripcionesActionPerformed(evt);
+            }
+        });
 
         btnViewMaterias.setFont(new java.awt.Font("Trebuchet MS", 1, 18)); // NOI18N
         btnViewMaterias.setText("Materias");
@@ -121,6 +126,14 @@ public class ViewPrincipal extends javax.swing.JFrame {
         escritorio.add(vm);
         vm.setVisible(true);
     }//GEN-LAST:event_btnViewMateriasActionPerformed
+
+    private void btnViewInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnViewInscripcionesActionPerformed
+        ViewFormInscripcion vf = new ViewFormInscripcion();
+        escritorio.add(vf);
+        vf.setVisible(true);
+        vf.moveToFront();
+        
+    }//GEN-LAST:event_btnViewInscripcionesActionPerformed
     
     /**
      * @param args the command line arguments

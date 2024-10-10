@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 public class Conexion {
     private static final String URL = "jdbc:mariadb://localhost:3306/universidad";
@@ -24,6 +25,7 @@ public class Conexion {
                 conexion = DriverManager.getConnection(URL, USUARIO, PASSWORD);
                 System.out.println("Conexión exitosa.");
             } catch (SQLException | ClassNotFoundException ex) {
+                JOptionPane.showMessageDialog(null, "Error al conectar con la base de datos");
                 Logger.getLogger(Conexion.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
