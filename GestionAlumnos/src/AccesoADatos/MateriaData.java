@@ -110,6 +110,10 @@ public class MateriaData {
             ps.close();
             return "La materia se ha eliminado correctamente";
         } catch (SQLException ex) {
+            if ("23000".equals(ex.getSQLState())) {
+                return "Para eliminar la materia debe eliminar antes las inscripciones de la misma";
+            }
+            
             return "No se pudo eliminar la materia";
         }
     }

@@ -66,7 +66,11 @@ public class ViewCargarNotas extends javax.swing.JInternalFrame {
         jtfNotaIngresada = new javax.swing.JTextField();
         botonGuardar = new javax.swing.JButton();
 
-        jButton1.setText("jButton1");
+        jButton1.setBackground(new java.awt.Color(255, 51, 51));
+        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1.setText("x");
+        jButton1.setToolTipText("");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -125,10 +129,6 @@ public class ViewCargarNotas extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 64, Short.MAX_VALUE)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(154, 154, 154))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
@@ -140,6 +140,10 @@ public class ViewCargarNotas extends javax.swing.JInternalFrame {
                         .addGap(66, 66, 66)
                         .addComponent(botonGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +160,7 @@ public class ViewCargarNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfNotaIngresada, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(botonGuardar))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         pack();
@@ -187,7 +191,7 @@ public class ViewCargarNotas extends javax.swing.JInternalFrame {
         int filaSelected= jTable1.getSelectedRow();
         
         int idm=(int) jTable1.getValueAt(filaSelected, 0) ;
-          System.out.println(idm);
+          
          try{
           double nota= Double.parseDouble(jtfNotaIngresada.getText());
              if (nota> 10 || nota<0) {

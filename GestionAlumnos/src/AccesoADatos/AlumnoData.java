@@ -143,8 +143,9 @@ public class AlumnoData {
             ps.close();
             return "¡Alumno eliminado (desactivado) con éxito!";
         } catch (SQLException ex) {
+            
             System.out.println("Error al eliminar alumno: " + ex.getMessage());
-            return "Error al eliminar alumno: " + ex.getMessage();
+            return "Error al eliminar alumno: (Recuerde eliminar la inscripcion del alumno) " + ex.getMessage();
         }
     }
 
@@ -162,8 +163,12 @@ public class AlumnoData {
             }
 
         } catch (SQLException ex) {
+             if ("23000".equals(ex.getSQLState())) {
+                return  "Para eliminar el alumno debe eliminar antes las inscripciones del mismo";
+            }
+            
             System.out.println("Error al eliminar alumno: " + ex.getMessage());
-            return "Error al borrar el alumno: " + ex.getMessage();
+            return "Error al borrar el alumno: Recuerde eliminar las inscripciones del alumno!" + ex.getMessage();
         }
     }
 }
